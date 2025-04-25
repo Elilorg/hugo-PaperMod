@@ -1,0 +1,93 @@
+:root {
+    --navbar-logo-size : 120px;
+    --navbar-logo-border-size : 6px;   
+    --navbar-space-between-links : 15px; 
+    --navbar-logo-padding : 20px;
+}
+
+
+.barre-des-themes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--navbar-space-between-links);
+	margin: 0 auto;
+    height:206.4px;
+}
+
+
+.button-container{
+    display: block;
+	height : 100%;
+	width : 20%
+}
+
+.titre-bouton{
+  font-size:18px;
+  display:block; 
+  margin:auto; 
+  text-align: center;
+  text-decoration: underline;
+  box-shadow:revert !important; 
+}
+
+.round-button {
+    box-shadow: 0 0 !important;
+    display: block;
+    width: var(--navbar-logo-size);
+    height:var(--navbar-logo-size);
+	margin : auto;
+    border-radius: 50%;
+    background-color: var(--accent-color); 
+    text-decoration: none;
+    cursor: pointer;
+    /* transition: aggrandir ? à faire */
+    transition: transform 0.3s ease;
+    position: relative;
+    top: 0;
+    text-decoration: none;
+
+
+    .img {
+      margin:0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      
+      z-index: 1; /* Dit que c'est au dessus et pas en dessous*/
+      width : auto;
+      height : calc(var(--navbar-logo-size) - var(--navbar-logo-border-size) * 2 - var(--navbar-logo-padding) * 2);
+      /*margin : calc(var(--navbar-logo-padding) + var(--navbar-logo-border-size)) auto;*/
+    }
+
+
+    /* Le truc qui grandit au hover (commence avec une taille 0*/
+    .inner {
+      background-color: black;
+      display: block;
+      height: 0;
+      width: 0;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius : 50%; /*pour que ce soit rond*/
+      transition : all 0.1s;
+    }
+
+    &:hover {
+      .img {
+        filter: invert(1);
+      }
+
+      .inner {
+        height: calc(var(--navbar-logo-size) - var(--navbar-logo-border-size) * 2);
+        margin-left: calc(var(--navbar-logo-border-size) - (var(--navbar-logo-size) / 2));
+        margin-top:  calc(var(--navbar-logo-border-size) - (var(--navbar-logo-size) / 2));
+        width: calc(var(--navbar-logo-size) - var(--navbar-logo-border-size) * 2);
+    }
+}
+}
